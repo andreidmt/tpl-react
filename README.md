@@ -31,8 +31,8 @@
 
 ## Environment variables
 
-* `API_URL` - used by `core/http.lib.js` to prefix request path
-* `SOCKET_URL` - used by `useList` hook for the socket.io connection
+* `API_URL` - used by [`core/http.lib.js`](src/core/http.lib.js) to prefix request path
+* `SOCKET_URL` - used by [`useList`](src/core/use-list.js) hook for the socket.io connection
 
 ## Custom hooks
 
