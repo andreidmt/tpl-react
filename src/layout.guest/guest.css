@@ -1,0 +1,7 @@
+.guest-layout {
+  padding: var(--distancer);
+}
+
+.guest-layout h1 {
+  margin-top: 0;
+}

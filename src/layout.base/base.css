@@ -1,0 +1,13 @@
+.base-layout {
+  display: grid;
+
+  height: 100vh;
+
+  grid-template-columns: 350px auto;
+}
+
+.leftside {
+  padding: var(--distancer);
+
+  border-right: 5px solid var(--color-black);
+}

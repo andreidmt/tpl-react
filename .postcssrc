@@ -1,0 +1,16 @@
+{
+  "modules": true,
+  "plugins": {
+    "postcss-preset-env": {
+      "importFrom": "src/core/ui/variables.css",
+      "preserve": false,
+      "stage": 2
+    },
+    "postcss-color-function": {},
+    "postcss-nested": {},
+    "postcss-custom-media": {
+      "importFrom": "src/core/ui/variables.css",
+      "preserve": false
+    },
+  }
+}

@@ -1,0 +1,36 @@
+:root {
+  /* general */
+  --opacity-disabled: 0.6;
+  --distancer: 30px;
+  --radius: 3px;
+  --line-height: 1.4;
+
+  /* fonts */
+  --font-family: helvetica, sans-serif;
+  --font-family-mono: "Hack", "Consolas", "Courier New", monospace;
+  --font-size-small: 12px;
+  --font-size: 14px;
+  --font-size-medium: 16px;
+  --font-size-big: 24px;
+  --font-size-huge: 40px;
+
+  /* colors */
+  --color-primary: #6D76CA;
+  --color-secondary: #6D76CA;
+  --color-bad: #FF6347;
+  --color-good: #42BD64;
+  --color-white: #FFF;
+  --color-black: #212529;
+
+  /* depth */
+  --z-index-highest: 300;
+  --z-index-higher: 200;
+  --z-index-high: 100;
+  --z-index-normal: 1;
+  --z-index-low: -100;
+  --z-index-lower: -200;
+}
+
+/* Desktop first */
+@custom-media --phone screen and (max-width: 480px);
+@custom-media --tablet screen and (min-width: 481px) and (max-width: 1024px);

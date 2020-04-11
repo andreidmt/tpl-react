@@ -1,0 +1,44 @@
+{
+  "parser": "babel-eslint",
+
+  "root": true,
+
+  "extends": [
+    "@mutant-ws/eslint-config/targets/react",
+  ],
+
+  "globals": {
+    // Access build time env vars
+    "process": true,
+
+    // Import packages
+    "require": true,
+  },
+
+  // App specific rules
+  "rules": {
+  },
+
+  "settings": {
+    "react": {
+      "version": "detect",
+    },
+
+    // Recommended if you use eslint_d
+    "import/cache": {
+      "lifetime": 5,
+    },
+
+    // Can add a path segment here that will act like a source root, for
+    // in-project aliasing (i.e. `import MyStore from 'stores/my-store'`)
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx"],
+
+        // Can add a path segment here that will act like a source root, for
+        // in-project aliasing (i.e. `import MyStore from 'stores/my-store'`)
+        "moduleDirectory": ["node_modules", "src"]
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+# Browsers that we support
+# Use "npx browserslist" to list exact browsers
+
+> 0.5%
+last 2 versions
+Firefox ESR
+not dead
