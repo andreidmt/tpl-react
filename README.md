@@ -12,7 +12,6 @@
   * [useList](#uselist)
   * [useQuery](#usequery)
 * [Recommendations](#recommendations)
-* [Changelog](#changelog)
 
 <!-- vim-markdown-toc -->
 
@@ -32,8 +31,8 @@
 
 ## Environment variables
 
-* `API_URL` - used by [`core/http.lib.js`](src/core/http.lib.js) to prefix request path
-* `SOCKET_URL` - used by [`useList`](src/core/use-list.js) hook for the socket.io connection
+* `API_URL` - prefix request path in [`core/http.lib.js`](src/core/http.lib.js)
+* `SOCKET_URL` - socket.io connection string in [`useList`](src/core/use-list.js) hook
 
 ## Custom hooks
 
@@ -47,15 +46,11 @@
 
 ## Recommendations
 
-* Use [Hierarchical Model-View-Controller](https://en.wikipedia.org/wiki/Hierarchical_model%E2%80%93view%E2%80%93controller)
-* Use consistent [naming](https://www.martinfowler.com/bliki/TwoHardThings.html)
+* [Hierarchical Model-View-Controller](https://en.wikipedia.org/wiki/Hierarchical_model%E2%80%93view%E2%80%93controller)
+* Consistent [naming](https://www.martinfowler.com/bliki/TwoHardThings.html)
 * Better repeat yourself than a wrong abstraction
 * Share as little state as possible between sections/pages
 * Each section has it's own data source, don't reuse
 * Refactor a lot, but not when the building is on fire
 * Don't fix imaginary future problem, you're not there yet
-* Extract code in libraries and test it 100% (no use in testing just the if branch)
-
-## Changelog
-
-See the [releases section](https://github.com/mutant-ws/react-starter/releases) for details.
+* Extract code in libraries and test it 100%
