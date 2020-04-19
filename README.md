@@ -52,5 +52,5 @@
 * Share as little state as possible between sections/pages
 * Each section has it's own data source, don't reuse
 * Refactor a lot, but not when the building is on fire
-* Don't fix imaginary future problem, you're not there yet
+* Don't fix imaginary future problem
 * Extract code in libraries and test it 100%
