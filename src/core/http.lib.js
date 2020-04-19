@@ -11,6 +11,22 @@ import {
 } from "@mutant-ws/m"
 
 /**
+ * Filter object keys by testing each value
+ *
+ * @param {Function} fn Predicate
+ *
+ * @returns {Object}
+ */
+const filterByValue = fn =>
+  pipe(
+    Object.entries,
+    reduce(
+      (acc, [key, value]) => (fn(value) ? { ...acc, [key]: value } : acc),
+      {}
+    )
+  )
+
+/**
  * Custom Error thrown when fetch resolves with a status !== 20*
  *
  * @param {String}        message    Response error message
@@ -36,7 +52,6 @@ const props = {
   baseURL: "",
   headers: {},
   queryStringifyFn: null,
-  fetchFn: window.fetch,
 }
 
 /**
@@ -57,12 +72,12 @@ const request = (
 ) => {
   const reqContent = {
     method,
-    headers: {
+    headers: filterByValue(is)({
       Accept: "application/json",
       "Content-Type": "application/json",
       ...props.headers,
       ...headers,
-    },
+    }),
   }
 
   // Avoid "HEAD or GET Request cannot have a body"
@@ -80,8 +95,8 @@ const request = (
     source => `${props.baseURL}/${source}`
   )(query)
 
-  return props
-    .fetchFn(reqURL, reqContent)
+  return window
+    .fetch(reqURL, reqContent)
     .then(response => {
       const isJSON = startsWith(
         "application/json",
