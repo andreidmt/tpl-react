@@ -1,10 +1,10 @@
-const debug = require("debug")("mrs:UserLayout")
+const debug = require("debug")("ReactStarter:UserLayout")
 
 import React from "react"
 import PropTypes from "prop-types"
 
-import { useAuth } from "../core/use-auth/auth.hook"
-import { BaseLayout } from "../layout.base/base"
+import { useAuth } from "/core.hooks/use-auth/auth.hook"
+import { BaseLayout } from "/layout.base/base"
 
 import css from "./user.css"
 

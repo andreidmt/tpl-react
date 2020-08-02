@@ -1,9 +1,10 @@
-const debug = require("debug")("mrs:GuestLayout")
+const debug = require("debug")("ReactStarter:GuestLayout")
 
 import React from "react"
 import PropTypes from "prop-types"
 
-import { BaseLayout } from "../layout.base/base"
+import { BaseLayout } from "/layout.base/base"
+
 import css from "./guest.css"
 
 const GuestLayout = ({ children }) => {

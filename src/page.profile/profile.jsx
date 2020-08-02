@@ -1,4 +1,4 @@
-const debug = require("debug")("mrs:ProfilePage")
+const debug = require("debug")("ReactStarter:ProfilePage")
 
 import React from "react"
 

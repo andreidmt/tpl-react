@@ -1,12 +1,12 @@
-const debug = require("debug")("mrs:LoginPage")
+const debug = require("debug")("ReactStarter:LoginPage")
 
 import React from "react"
 import { isEmpty } from "@mutant-ws/m"
 import { useHistory } from "react-router-dom"
 
-import { useQuery } from "../core/use-query"
-import { useAuth } from "../core/use-auth/auth.hook"
-import { pathByName } from "../core/routes.lib"
+import { useQuery } from "/core.hooks/use-query"
+import { useAuth } from "/core.hooks/use-auth/auth.hook"
+import { pathByName } from "/core.libs/routes"
 
 // Entry point from email with one-time-token to be exchanged for a JWT
 const LoginPage = () => {

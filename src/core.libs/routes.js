@@ -1,7 +1,7 @@
-const debug = require("debug")("mrs:RoutesLib")
+const debug = require("debug")("ReactStarter:RoutesLib")
 
 import { compile } from "path-to-regexp"
-import { reduce, pipe, get, when, is, isEmpty } from "@mutant-ws/m"
+import { reduce, pipe, split, last, get, when, is, isEmpty } from "@mutant-ws/m"
 import { stringify } from "qs"
 
 /**
@@ -79,3 +79,16 @@ export const buildURL = (name, { params, query, anchor }) => {
     )
   )(ROUTES_COMPILED)
 }
+
+// Parse ajv error structure into key/value object
+export const errorMessagesByField = pipe(
+  get(["body", "details", "fieldErrors"], []),
+  reduce((acc, item) => {
+    const field = pipe(get("dataPath"), split("."), last)(item)
+
+    return {
+      ...acc,
+      [field]: item.message,
+    }
+  }, {})
+)

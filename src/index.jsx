@@ -1,14 +1,14 @@
-const debug = require("debug")("mrs:Index")
+const debug = require("debug")("ReactStarter:Index")
 
 import React from "react"
+import { hot } from "react-hot-loader"
 import { render } from "react-dom"
 import { Provider } from "react-redux"
+import { stringify } from "qs"
+import { set as setHTTPProps } from "@mutant-ws/fetch-browser"
 
 import { store } from "./index.redux"
 import { AppRouter } from "./index.router"
-
-import { stringify } from "qs"
-import { set as setHTTPProps } from "./core/http.lib"
 
 import "./index.css"
 
@@ -32,14 +32,21 @@ setHTTPProps({
     }),
 })
 
-render(
+// React hot reloading
+const App = hot(module)(() => (
   <Provider store={store}>
     <AppRouter />
-  </Provider>,
-  document.getElementById("react-root")
-)
+  </Provider>
+))
+
+render(<App />, document.getElementById("react-root"))
+
+// Parcel hot reloading
+if (module.hot) {
+  module.hot.accept()
+}
 
 // activate debug logging when in development
 if (process.env.NODE_ENV !== "production") {
-  window.localStorage.setItem("debug", "mrs:*", "ReduxList:*")
+  window.localStorage.setItem("debug", "ReactStarter:*", "ReduxList:*")
 }

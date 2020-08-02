@@ -1,5 +1,5 @@
 @import "sanitize.css";
-@import "./core/ui/fonts.css";
+@import "./fonts.css";
 
 body {
   color: var(--color-black);
