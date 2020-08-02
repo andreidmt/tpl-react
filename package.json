@@ -1,15 +1,15 @@
 {
-  "name": "react-starter",
+  "name": "tpl-react",
   "version": "0.0.1",
   "description": "Frontend starter with React, Redux, Parcel and friends",
   "license": "MIT",
-  "homepage": "https://github.com/mutant-ws/react-starter#readme",
+  "homepage": "https://github.com/andreid-asd/tpl-react#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mutant-ws/react-starter.git"
+    "url": "git+https://github.com/andreid-asd/tpl-react.git"
   },
   "bugs": {
-    "url": "https://github.com/mutant-ws/react-starter/issues"
+    "url": "https://github.com/andreid-asd/tpl-react/issues"
   },
   "author": {
     "name": "Andrei Dumitrescu",
@@ -34,7 +34,8 @@
     "tdd": "nodemon -e js,jsx,json --watch src --exec \"npm test\""
   },
   "dependencies": {
-    "@babel/runtime": "^7.10.5",
+    "@babel/runtime": "^7.11.0",
+    "@mutant-ws/fetch-browser": "^1.3.0",
     "@mutant-ws/m": "^1.16.0",
     "@mutant-ws/next": "^1.8.0",
     "@mutant-ws/redux-list": "^7.4.0",
@@ -43,36 +44,38 @@
     "fast-deep-equal": "^3.1.3",
     "luxon": "^1.24.1",
     "qs": "^6.9.4",
-    "ramda": "^0.27.0",
+    "ramda": "^0.27.1",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-redux": "^7.2.0",
+    "react-dom": "npm:@hot-loader/react-dom@16.13.0",
+    "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
+    "react-hot-loader": "^4.12.21",
     "redux": "^4.0.5",
     "sanitize.css": "^11.0.1",
     "socket.io-client": "^2.3.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",
-    "@babel/core": "^7.10.5",
+    "@babel/core": "^7.11.0",
     "@babel/plugin-transform-react-constant-elements": "^7.10.4",
     "@babel/plugin-transform-react-display-name": "^7.10.4",
-    "@babel/plugin-transform-runtime": "^7.10.5",
-    "@babel/preset-env": "^7.10.4",
+    "@babel/plugin-transform-runtime": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
     "@babel/register": "^7.10.5",
     "@mutant-ws/eslint-config": "^5.11.0",
     "babel-eslint": "^10.1.0",
     "babel-plugin-jsx-remove-data-test-id": "^2.1.3",
-    "eslint": "^7.5.0",
+    "eslint": "^7.6.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-html": "^6.0.2",
     "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-json": "^2.1.1",
+    "eslint-import-resolver-parcel": "^1.10.4",
+    "eslint-plugin-json": "^2.1.2",
     "eslint-plugin-no-inferred-method-name": "^2.0.0",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-react": "^7.20.5",
     "eslint-plugin-react-hooks": "^4.0.8",
     "eslint-plugin-unicorn": "^21.0.0",
     "ignore-styles": "^5.0.1",
