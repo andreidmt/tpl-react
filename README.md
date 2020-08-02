@@ -1,6 +1,6 @@
 <!-- markdownlint-disable line-length -->
 
-# react-starter
+# tpl-react
 
 <!-- vim-markdown-toc GFM -->
 
