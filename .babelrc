@@ -16,7 +16,9 @@
     "@babel/plugin-transform-runtime",
 
     // Add displayName to React.createClass calls
-    "@babel/plugin-transform-react-display-name"
+    "@babel/plugin-transform-react-display-name",
+
+    "react-hot-loader/babel"
   ],
 
   "env": {
@@ -33,5 +35,3 @@
     }
   }
 }
-
-
