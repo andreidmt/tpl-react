@@ -3,7 +3,7 @@ const debug = require("debug")("ReactStarter:AppRouter")
 import React from "react"
 import { BrowserRouter, Switch } from "react-router-dom"
 
-import { pathByName } from "/core.libs/routes"
+import { getPath } from "core.libs/routes"
 
 import { HomePage } from "./page.home/home"
 import { LoginPage } from "./page.login/login"
@@ -18,7 +18,7 @@ export const AppRouter = () => {
     <BrowserRouter>
       <Switch>
         <GuestRoute
-          path={pathByName("guest.home")}
+          path={getPath("guest.home")}
           component={HomePage}
           exact={true}
         />
@@ -27,7 +27,7 @@ export const AppRouter = () => {
           // Only for un-authenticated users
         }
         <GuestRoute
-          path={pathByName("auth.login")}
+          path={getPath("auth.login")}
           component={LoginPage}
           isExclusive={true}
           hasLayout={false}
@@ -36,7 +36,7 @@ export const AppRouter = () => {
         {
           // Only for authenticated users
         }
-        <UserRoute path={pathByName("users.profile")} component={ProfilePage} />
+        <UserRoute path={getPath("users.profile")} component={ProfilePage} />
 
         {
           // 404

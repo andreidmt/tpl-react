@@ -4,13 +4,13 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Route, Redirect } from "react-router-dom"
 
-import { useAuth } from "/core.hooks/use-auth/auth.hook"
+import { useAuth } from "core.hooks/use-auth/auth.hook"
 
-import { GuestLayout } from "/layout.guest/guest"
-import { BaseLayout } from "/layout.base/base"
+import { GuestLayout } from "./layout.guest/guest"
+import { BaseLayout } from "./layout.base/base"
 
 /**
- * Routes that dont need authenticated/authorized access.
+ * Route without authentication
  *
  * @param {string}     path         Route path
  * @param {string}     redirectPath Redirect if JWT present and

@@ -1,16 +1,16 @@
-const debug = require("debug")("ReactStarter:UserRoute")
+const debug = require("debug")("ReactRouter:UserRoute")
 
 import React from "react"
 import PropTypes from "prop-types"
 import { Route, Redirect } from "react-router-dom"
 
-import { useAuth } from "/core.hooks/use-auth/auth.hook"
+import { useAuth } from "core.hooks/use-auth/auth.hook"
 
 import { BaseLayout } from "./layout.base/base"
 import { UserLayout } from "./layout.user/user"
 
 /**
- * Route for paths that need authenticated/authorized access.
+ * Route with authentication
  *
  * Tip: Use Route to check authentication, Layout or Page components for
  * authorization

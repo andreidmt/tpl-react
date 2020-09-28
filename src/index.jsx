@@ -10,7 +10,7 @@ import { set as setHTTPProps } from "@mutant-ws/fetch-browser"
 import { store } from "./index.redux"
 import { AppRouter } from "./index.router"
 
-import "./index.css"
+import "core.ui/index.css"
 
 setHTTPProps({
   // Prefix request urls with API_URL
@@ -32,6 +32,11 @@ setHTTPProps({
     }),
 })
 
+// Parcel hot reloading
+if (module.hot) {
+  module.hot.accept()
+}
+
 // React hot reloading
 const App = hot(module)(() => (
   <Provider store={store}>
@@ -40,11 +45,6 @@ const App = hot(module)(() => (
 ))
 
 render(<App />, document.getElementById("react-root"))
-
-// Parcel hot reloading
-if (module.hot) {
-  module.hot.accept()
-}
 
 // activate debug logging when in development
 if (process.env.NODE_ENV !== "production") {
