@@ -1,11 +1,11 @@
-const debug = require("debug")("ReactStarter:useSocket")
+const debug = require("debug")("asd14:useSocket")
 
 import io from "socket.io-client"
 import { useCallback } from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { is, get, isEmpty } from "@mutant-ws/m"
+import { is, get, isEmpty } from "m.xyz"
 
-import { useAuth } from "/core.hooks/use-auth/auth.hook"
+import { useAuth } from "core.hooks/use-auth/auth.hook"
 
 import { STORE_KEY } from "./socket.reducer"
 

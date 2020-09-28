@@ -1,10 +1,10 @@
 const debug = require("debug")("ReactStarter:useFocus")
 
 import { useSelector, useDispatch } from "react-redux"
-import { is } from "@mutant-ws/m"
+import { is } from "m.xyz"
 
-import { setLayer as setKeyboardLayer } from "/core.libs/keyboard"
-import { useCallback } from "/core.hooks/use-deep"
+import { setLayer as setKeyboardLayer } from "core.libs/keyboard"
+import { useCallback } from "core.hooks/use-deep"
 
 export const BASE_LAYER = "base"
 

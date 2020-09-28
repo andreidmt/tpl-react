@@ -2,7 +2,7 @@ const debug = require("debug")("ReactStarter:usePortal")
 
 import { useRef, useEffect } from "react"
 import { createPortal } from "react-dom"
-import { is } from "@mutant-ws/m"
+import { is } from "m.xyz"
 
 /**
  * Hook to create a React Portal.

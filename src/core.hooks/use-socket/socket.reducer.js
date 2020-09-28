@@ -1,4 +1,4 @@
-const debug = require("debug")("ReactStarter:useSocketReducer")
+const debug = require("debug")("asd14:useSocketReducer")
 
 export const STORE_KEY = "GLOBAL.SOCKET"
 

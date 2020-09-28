@@ -1,6 +1,7 @@
 const debug = require("debug")("ReactStarter:usePrev")
 
 import { useRef } from "react"
+
 import { useEffect } from "./use-deep"
 
 export const usePrev = value => {

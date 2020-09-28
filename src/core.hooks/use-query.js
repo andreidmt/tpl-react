@@ -3,7 +3,7 @@ const debug = require("debug")("ReactStarter:useQuery")
 import { useMemo, useHistory, useLocation } from "react-router-dom"
 import { stringify, parse } from "qs"
 
-import { useCallback } from "/core.hooks/use-deep"
+import { useCallback } from "./use-deep"
 
 /**
  * Get/Set query params via `qs` lib

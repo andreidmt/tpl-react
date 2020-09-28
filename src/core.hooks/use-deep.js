@@ -7,7 +7,7 @@ import {
   useRef,
   memo as reactMemo,
 } from "react"
-import { map, get, isEmpty } from "@mutant-ws/m"
+import { map, get, isEmpty } from "m.xyz"
 import { pick, keys } from "ramda"
 import isDeepEqual from "fast-deep-equal"
 
