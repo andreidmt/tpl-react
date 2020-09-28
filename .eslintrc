@@ -4,7 +4,7 @@
   "root": true,
 
   "extends": [
-    "@mutant-ws/eslint-config/targets/react",
+    "./node_modules/eslint-config.xyz/targets/react",
   ],
 
   "ignorePatterns": ["dist/*.js"],
