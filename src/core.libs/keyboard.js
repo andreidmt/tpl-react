@@ -1,20 +1,11 @@
-const debug = require("debug")("ReactStarter:LibKeyboard")
+const debug = require("debug")("ReactStarter:KeyboardLib")
 
-import { has, is, isEmpty } from "@mutant-ws/m"
+import { has, is, isEmpty } from "m.xyz"
 import { concat, split, path, pipe, when, map, reduce } from "ramda"
 
 /**
  * Similar to programmable mechanical keyboards, keys can do different things
  * based on the current active layer.
- */
-
-/**
- * Layered Keyboard state
- *
- * @typedef {Object} KeyboardState
- *
- * @property {String}             selectedLayer
- * @property {KeyboardShortcut[]} shortcuts
  */
 
 /**
@@ -29,7 +20,12 @@ import { concat, split, path, pipe, when, map, reduce } from "ramda"
  * @property {Function} onFinish
  */
 
-/** @type {KeyboardState} */
+/**
+ * Layered Keyboard state
+ *
+ * @property {String}             selectedLayer
+ * @property {KeyboardShortcut[]} shortcuts
+ */
 const state = {
   selectedLayer: "base",
   shortcuts: {},

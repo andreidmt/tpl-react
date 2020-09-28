@@ -1,7 +1,7 @@
 const debug = require("debug")("ReactStarter:RoutesLib")
 
 import { compile } from "path-to-regexp"
-import { reduce, pipe, split, last, get, when, is, isEmpty } from "@mutant-ws/m"
+import { reduce, pipe, split, last, get, when, is, isEmpty } from "m.xyz"
 import { stringify } from "qs"
 
 /**
@@ -42,7 +42,7 @@ const ROUTES_COMPILED = reduce(
  *
  * @return {string}
  */
-export const pathByName = name => {
+export const getPath = name => {
   if (isEmpty(ROUTES[name])) {
     throw new RouteNotFoundError(name)
   }
