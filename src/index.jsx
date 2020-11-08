@@ -48,5 +48,5 @@ render(<App />, document.getElementById("react-root"))
 
 // activate debug logging when in development
 if (process.env.NODE_ENV !== "production") {
-  window.localStorage.setItem("debug", "ReactStarter:*", "ReduxList:*")
+  window.localStorage.setItem("debug", "asd14:*", "ReduxList:*")
 }
