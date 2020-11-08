@@ -23,7 +23,7 @@
 * State management: [Redux](https://github.com/reduxjs/redux), [just-a-list.redux](https://github.com/andreidmt/just-a-list.redux)
 * Real time: [socket.io-client](https://github.com/socketio/socket.io-client)
 * Testing: [riteway](https://github.com/ericelliott/riteway)
-* Linting: [ESLint](https://github.com/eslint/eslint), [Stylelint](https://github.com/stylelint/stylelint), [eslint-config-xyz](https://github.com/andreidmt/eslint-config-xyz)
+* Linting: [ESLint](https://github.com/eslint/eslint), [Stylelint](https://github.com/stylelint/stylelint), [@asd14/eslint-config](https://github.com/asd-xiv/eslint-config)
 * Functional: [ramda](https://github.com/ramda/ramda)
 * Code formatting: ESLint rules + [prettier](https://github.com/prettier/prettier)
 * Query string parsing: [qs](https://github.com/ljharb/qs)

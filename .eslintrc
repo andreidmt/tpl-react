@@ -4,7 +4,7 @@
   "root": true,
 
   "extends": [
-    "./node_modules/eslint-config.xyz/targets/react",
+    "@asd14/eslint-config/targets/react",
   ],
 
   "ignorePatterns": ["dist/*.js"],
