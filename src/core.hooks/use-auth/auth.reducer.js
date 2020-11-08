@@ -1,4 +1,4 @@
-const debug = require("debug")("mutant:AuthReducers")
+const debug = require("debug")("asd14:AuthReducers")
 
 export const STORE_KEY = "GLOBAL.AUTH"
 

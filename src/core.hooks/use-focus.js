@@ -1,7 +1,7 @@
-const debug = require("debug")("ReactStarter:useFocus")
+const debug = require("debug")("asd14:useFocus")
 
 import { useSelector, useDispatch } from "react-redux"
-import { is } from "m.xyz"
+import { is } from "@asd14/m"
 
 import { setLayer as setKeyboardLayer } from "core.libs/keyboard"
 import { useCallback } from "core.hooks/use-deep"

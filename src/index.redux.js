@@ -1,4 +1,4 @@
-const debug = require("debug")("ReactStarter:Redux")
+const debug = require("debug")("asd14:Redux")
 
 import { createStore, combineReducers } from "redux"
 

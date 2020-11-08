@@ -1,8 +1,8 @@
-const debug = require("debug")("ReactStarter:Home.TodosList")
+const debug = require("debug")("asd14:Home.TodosList")
 
 import { buildList } from "just-a-list.redux"
-import { GET, PATCH, POST, DELETE } from "@mutant-ws/fetch-browser"
-import { sort } from "m.xyz"
+import { GET, PATCH, POST, DELETE } from "@asd14/fetch-browser"
+import { sort } from "@asd14/m"
 
 export const TodosList = buildList({
   name: "HOME.TODOS",

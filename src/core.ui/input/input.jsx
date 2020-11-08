@@ -1,10 +1,10 @@
-const debug = require("debug")("ReactStarter:UIInput")
+const debug = require("debug")("asd14:UIInput")
 
 import React, { forwardRef } from "react"
 import PropTypes from "prop-types"
 import cx from "classnames"
 import cuid from "cuid"
-import { isEmpty, is } from "m.xyz"
+import { isEmpty, is } from "@asd14/m"
 
 import css from "./input.css"
 

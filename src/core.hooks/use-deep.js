@@ -1,4 +1,4 @@
-const debug = require("debug")("ReactStarter:useDeep")
+const debug = require("debug")("asd14:useDeep")
 
 import {
   useEffect as useReactEffect,
@@ -7,7 +7,7 @@ import {
   useRef,
   memo as reactMemo,
 } from "react"
-import { map, get, isEmpty } from "m.xyz"
+import { map, get, isEmpty } from "@asd14/m"
 import { pick, keys } from "ramda"
 import isDeepEqual from "fast-deep-equal"
 

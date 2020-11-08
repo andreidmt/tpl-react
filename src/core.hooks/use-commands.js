@@ -1,4 +1,4 @@
-const debug = require("debug")("ReactStarter:useCommands")
+const debug = require("debug")("asd14:useCommands")
 
 import { useCallback } from "react"
 import { useSelector, useDispatch } from "react-redux"
@@ -14,7 +14,7 @@ import {
   reduce,
   pipe,
   filterWith,
-} from "m.xyz"
+} from "@asd14/m"
 import { append } from "ramda"
 
 export const STORE_KEY = "GLOBAL.COMMANDS"

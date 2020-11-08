@@ -1,4 +1,4 @@
-const debug = require("debug")("ReactRouter:UserRoute")
+const debug = require("debug")("asd14:UserRoute")
 
 import React from "react"
 import PropTypes from "prop-types"

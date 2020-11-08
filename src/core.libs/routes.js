@@ -1,7 +1,7 @@
-const debug = require("debug")("ReactStarter:RoutesLib")
+const debug = require("debug")("asd14:RoutesLib")
 
 import { compile } from "path-to-regexp"
-import { reduce, pipe, split, last, get, when, is, isEmpty } from "m.xyz"
+import { reduce, pipe, split, last, get, when, is, isEmpty } from "@asd14/m"
 import { stringify } from "qs"
 
 /**

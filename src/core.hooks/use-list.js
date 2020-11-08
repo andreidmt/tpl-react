@@ -1,4 +1,4 @@
-const debug = require("debug")("ReactStarter:useList")
+const debug = require("debug")("asd14:useList")
 
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"

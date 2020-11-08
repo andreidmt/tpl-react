@@ -1,4 +1,4 @@
-const debug = require("debug")("ReactStarter:GuestRoute")
+const debug = require("debug")("asd14:GuestRoute")
 
 import React from "react"
 import PropTypes from "prop-types"

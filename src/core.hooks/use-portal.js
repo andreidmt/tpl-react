@@ -1,8 +1,8 @@
-const debug = require("debug")("ReactStarter:usePortal")
+const debug = require("debug")("asd14:usePortal")
 
 import { useRef, useEffect } from "react"
 import { createPortal } from "react-dom"
-import { is } from "m.xyz"
+import { is } from "@asd14/m"
 
 /**
  * Hook to create a React Portal.

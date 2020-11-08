@@ -1,8 +1,8 @@
-const debug = require("debug")("ReactStarter:useSocket")
+const debug = require("debug")("asd14:useSocket")
 
 import { useCallback } from "react"
-import { is, isEmpty } from "m.xyz"
 import { useSelector, useDispatch } from "react-redux"
+import { is, isEmpty } from "@asd14/m"
 import io from "socket.io-client"
 
 import { useAuth } from "./use-auth/auth.hook"

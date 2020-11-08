@@ -1,4 +1,4 @@
-const debug = require("debug")("ReactStarter:BaseLayout")
+const debug = require("debug")("asd14:BaseLayout")
 
 import React from "react"
 import PropTypes from "prop-types"

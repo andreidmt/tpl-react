@@ -1,9 +1,9 @@
-const debug = require("debug")("ReactStarter:UIButton")
+const debug = require("debug")("asd14:UIButton")
 
 import * as React from "react"
 import PropTypes from "prop-types"
 import cx from "classnames"
-import { is } from "m.xyz"
+import { is } from "@asd14/m"
 
 import css from "./button.css"
 

@@ -1,4 +1,4 @@
-const debug = require("debug")("ReactStarter:usePrev")
+const debug = require("debug")("asd14:usePrev")
 
 import { useRef } from "react"
 

@@ -1,4 +1,4 @@
-const debug = require("debug")("ReactStarter:useQuery")
+const debug = require("debug")("asd14:useQuery")
 
 import { useMemo, useHistory, useLocation } from "react-router-dom"
 import { stringify, parse } from "qs"

@@ -1,6 +1,6 @@
-const debug = require("debug")("ReactStarter:KeyboardLib")
+const debug = require("debug")("asd14:KeyboardLib")
 
-import { has, is, isEmpty } from "m.xyz"
+import { has, is, isEmpty } from "@asd14/m"
 import { concat, split, path, pipe, when, map, reduce } from "ramda"
 
 /**

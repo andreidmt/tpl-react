@@ -1,8 +1,8 @@
-const debug = require("debug")("mutant:AuthHook")
+const debug = require("debug")("asd14:AuthHook")
 
 import { useSelector, useDispatch } from "react-redux"
-import { get, is } from "m.xyz"
-import { GET, POST, PATCH, set as setupFetch } from "@mutant-ws/fetch-browser"
+import { get, is } from "@asd14/m"
+import { GET, POST, PATCH, set as setupFetch } from "@asd14/fetch-browser"
 import * as Sentry from "@sentry/browser"
 
 import { useCallback } from "core.hooks/use-deep"

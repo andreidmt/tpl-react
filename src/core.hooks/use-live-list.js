@@ -1,8 +1,8 @@
-const debug = require("debug")("ReactStarter:useLiveList")
+const debug = require("debug")("asd14:useLiveList")
 
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { is } from "m.xyz"
+import { is } from "@asd14/m"
 
 import { useSocket } from "./use-socket"
 

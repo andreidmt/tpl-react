@@ -1,7 +1,7 @@
-const debug = require("debug")("ReactStarter:LoginPage")
+const debug = require("debug")("asd14:LoginPage")
 
 import React from "react"
-import { isEmpty } from "m.xyz"
+import { isEmpty } from "@asd14/m"
 import { useHistory } from "react-router-dom"
 
 import { useQuery } from "core.hooks/use-query"

@@ -3,7 +3,7 @@ const debug = require("debug")("asd14:useSocket")
 import io from "socket.io-client"
 import { useCallback } from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { is, get, isEmpty } from "m.xyz"
+import { is, get, isEmpty } from "@asd14/m"
 
 import { useAuth } from "core.hooks/use-auth/auth.hook"
 

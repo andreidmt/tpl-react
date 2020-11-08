@@ -1,11 +1,11 @@
-const debug = require("debug")("ReactStarter:Index")
+const debug = require("debug")("asd14:Index")
 
 import React from "react"
 import { hot } from "react-hot-loader"
 import { render } from "react-dom"
 import { Provider } from "react-redux"
 import { stringify } from "qs"
-import { set as setHTTPProps } from "@mutant-ws/fetch-browser"
+import { set as setHTTPProps } from "@asd14/fetch-browser"
 
 import { store } from "./index.redux"
 import { AppRouter } from "./index.router"
