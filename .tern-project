@@ -4,8 +4,7 @@
     "react"
   ],
   "plugins": {
-    "es_modules": {},
-    "node": {}
+    "es_modules": {}
   },
   "dontLoad": [
     "node_modules/**"
