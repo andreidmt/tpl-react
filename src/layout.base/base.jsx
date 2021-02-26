@@ -3,7 +3,7 @@ const debug = require("debug")("asd14:BaseLayout")
 import React from "react"
 import PropTypes from "prop-types"
 
-import css from "./base.css"
+import css from "./base.module.css"
 
 const BaseLayout = ({ children }) => {
   return (
@@ -14,8 +14,7 @@ const BaseLayout = ({ children }) => {
             Main: <a href="https://github.com/facebook/react">React</a>
           </li>
           <li>
-            Bundler:{" "}
-            <a href="https://github.com/parcel-bundler/parcel">Parcel v2</a>
+            Bundler: <a href="https://github.com/webpack/webpack">Webpack v5</a>
           </li>
           <li>
             CSS: <a href="https://github.com/postcss/postcss">PostCSS</a>
@@ -23,8 +22,8 @@ const BaseLayout = ({ children }) => {
           <li>
             State management:{" "}
             <a href="https://github.com/reduxjs/redux">Redux</a>,{" "}
-            <a href="https://github.com/andreidmt/just-a-list.redux">
-              just-a-list.redux
+            <a href="https://github.com/asd-xiv/state-list">
+              @asd14/state-list
             </a>
           </li>
           <li>
@@ -40,12 +39,12 @@ const BaseLayout = ({ children }) => {
           <li>
             Linting: <a href="https://github.com/eslint/eslint">ESLint</a>,{" "}
             <a href="https://github.com/stylelint/stylelint">Stylelint</a>,{" "}
-            <a href="https://github.com/andreidmt/eslint-config-xyz">
-              eslint-config-xyz
+            <a href="https://github.com/asd-xiv/eslint-config">
+              @asd14/eslint-config
             </a>
           </li>
           <li>
-            Functional: <a href="https://github.com/ramda/ramda">ramda</a>
+            Functional: <a href="https://github.com/asd-xiv/m">@asd14/m</a>
           </li>
           <li>
             Code formatting: ESLint rules +{" "}

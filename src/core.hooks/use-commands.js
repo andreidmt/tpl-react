@@ -2,6 +2,7 @@ const debug = require("debug")("asd14:useCommands")
 
 import { useCallback } from "react"
 import { useSelector, useDispatch } from "react-redux"
+
 import {
   merge,
   sort,
@@ -14,8 +15,8 @@ import {
   reduce,
   pipe,
   filterWith,
+  append,
 } from "@asd14/m"
-import { append } from "ramda"
 
 export const STORE_KEY = "GLOBAL.COMMANDS"
 
@@ -70,17 +71,17 @@ export const useCommands = () => {
 /**
  * Return commands assigned to layer and also parent layers
  *
+ * @param   {string}        layer    Layer name
+ * @param   {Object[]}      commands Array of objects containing commands for each layer
+ *
+ * @returns {CommandsState}          Array with commands
+ *
  * @example
- * byLayer("base.work", [...])
- * // => [
- * //   {layer: "base", name: "login", ...},
- * //   {layer: "base.work", name: "profile", ...}
- * // ]
- *
- * @param {String}   layer    Layer name
- * @param {Object[]} commands Array of objects containing commands for each layer
- *
- * @returns {CommandsState} Array with commands
+ *                                   byLayer("base.work", [...])
+ *                                   // => [
+ *                                   //   {layer: "base", name: "login", ...},
+ *                                   //   {layer: "base.work", name: "profile", ...}
+ *                                   // ]
  */
 export const byLayer = (layer, commands) =>
   pipe(
@@ -89,8 +90,8 @@ export const byLayer = (layer, commands) =>
     }),
     sort((a, b) => a.layer.length < b.layer.length),
     reduce(
-      (acc, item) => [
-        ...acc,
+      (accumulator, item) => [
+        ...accumulator,
         ...map(merge({ layer: item.layer }))(item.commands),
       ],
       []

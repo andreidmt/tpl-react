@@ -9,16 +9,20 @@ import { useSocket } from "./use-socket"
 /**
  * Mark lists that listen to real-time events to prevent double updates
  *
- * @type Object<string, boolean>
+ * @type  Object<string, boolean>
  */
 const listsWithListener = {}
 
 /**
  * Redux list hook
  *
- * @param {Object} list        Redux List object
- * @param {Object} socketProps WebSocket configuration
+ * @param   {Object}   list                              Redux List object
+ * @param   {Object}   socketProps                       WebSocket configuration
  *
+ * @param   {Object}   socketProps.events
+ * @param   {string}   socketProps.events.prefix
+ * @param   {Function} socketProps.events.shouldAcceptFn
+ * @param   {Function} socketProps.events.onUpdate
  * @returns {Object}
  */
 export const useLiveList = (
@@ -86,7 +90,7 @@ export const useLiveList = (
       return () => {
         debug(`${list.name}: Removing handler for "${prefix}" events`)
 
-        listsWithListener[list.name] = null
+        listsWithListener[list.name] = undefined
 
         socket.off(`${prefix}.create`, handleOnCreate)
         socket.off(`${prefix}.update`, handleOnUpdate)

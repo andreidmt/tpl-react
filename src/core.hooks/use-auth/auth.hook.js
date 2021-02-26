@@ -3,21 +3,15 @@ const debug = require("debug")("asd14:AuthHook")
 import { useSelector, useDispatch } from "react-redux"
 import { get, is } from "@asd14/m"
 import { GET, POST, PATCH, set as setupFetch } from "@asd14/fetch-browser"
-import * as Sentry from "@sentry/browser"
 
 import { useCallback } from "core.hooks/use-deep"
 import { errorMessagesByField } from "core.libs/routes"
 
 import { STORE_KEY } from "./auth.reducer"
 
-const persistUser = ({ id, name, email, profile, accessToken } = {}) => {
+const persistUser = ({ profile, accessToken } = {}) => {
   // persist JWT for hard refresh or new tabs
   localStorage.setItem(`useJWTAuth.${profile}.accessToken`, accessToken)
-
-  // attach future client errors to user
-  Sentry.configureScope(scope => {
-    scope.setUser({ id, name, email })
-  })
 
   // all future requests attach user token
   setupFetch({

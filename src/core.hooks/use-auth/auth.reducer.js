@@ -1,14 +1,13 @@
-const debug = require("debug")("asd14:AuthReducers")
+const debug = require("debug")("probable-spoon:AuthReducers")
+
+const defaultState = {
+  profile: sessionStorage.getItem("useJWTAuth.profile") ?? "user",
+  data: {},
+}
 
 export const STORE_KEY = "GLOBAL.AUTH"
 
-export const reducer = (
-  state = {
-    profile: sessionStorage.getItem("useJWTAuth.profile") ?? "user",
-    data: {},
-  },
-  { type, profile, payload = {} }
-) => {
+export const reducer = (state, { type, profile, payload = {} }) => {
   switch (type) {
     case `${STORE_KEY}.SWITCH_PROFILE`:
       sessionStorage.setItem("useJWTAuth.profile", profile)
@@ -26,10 +25,10 @@ export const reducer = (
         data: {
           ...state.data,
           [profile]: {
-            id: null,
-            name: null,
-            email: null,
-            avatarURL: null,
+            id: undefined,
+            name: undefined,
+            email: undefined,
+            avatarURL: undefined,
             errors: {},
             isLoading: true,
           },
@@ -77,7 +76,7 @@ export const reducer = (
       }
 
     case `${STORE_KEY}.LOGOUT`:
-      return state
+      return defaultState
 
     // return {
     //   profile: state.profile,
@@ -88,6 +87,6 @@ export const reducer = (
     // }
 
     default:
-      return state
+      return defaultState
   }
 }

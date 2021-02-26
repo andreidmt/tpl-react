@@ -12,26 +12,26 @@
   ],
 
   "plugins": [
+    // Can speed up reconciliation and reduce garbage collection pressure
+    // by hoisting React elements to the highest possible scope,
+    // preventing multiple unnecessary reinstantiations.
+    "@babel/plugin-transform-react-constant-elements",
+
+    // Remove data-test-id attributes from your production builds.
+    "babel-plugin-jsx-remove-data-test-id",
+
     // Enables the re-use of Babel's injected helper code to save on codesize
     "@babel/plugin-transform-runtime",
 
     // Add displayName to React.createClass calls
-    "@babel/plugin-transform-react-display-name",
-
-    "react-hot-loader/babel"
+    "@babel/plugin-transform-react-display-name"
   ],
 
   "env": {
-    "production": {
+    "development": {
       "plugins": [
-        // Can speed up reconciliation and reduce garbage collection pressure
-        // by hoisting React elements to the highest possible scope,
-        // preventing multiple unnecessary reinstantiations.
-        "@babel/plugin-transform-react-constant-elements",
-
-        // Remove data-test-id attributes from your production builds.
-        "babel-plugin-jsx-remove-data-test-id",
-      ]
-    }
+        "react-refresh/babel"
+      ],
+    },
   }
 }

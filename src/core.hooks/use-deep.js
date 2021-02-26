@@ -7,16 +7,14 @@ import {
   useRef,
   memo as reactMemo,
 } from "react"
-import { map, get, isEmpty } from "@asd14/m"
-import { pick, keys } from "ramda"
-import isDeepEqual from "fast-deep-equal"
+import { pluck, keys, map, get, isEmpty, isDeepEqual } from "@asd14/m"
 
-const debugDiff = (prev, next) => {
+const debugDiff = (previous, next) => {
   debug({
-    prev,
+    prev: previous,
     next,
     diff: map((item, index) => {
-      return isDeepEqual(item, get(index)(prev))
+      return isDeepEqual(item, get(index)(previous))
     })(next),
   })
 }
@@ -26,49 +24,54 @@ const debugDiff = (prev, next) => {
  * Use same name as react hooks to benefit from "eslint-react-hooks"
  */
 
-export const useMemo = (fn, deps, isDebug = false) => {
+export const useMemo = (function_, deps, isDebug = false) => {
   // The ref object is a generic container whose current property is mutable ...
   // ... and can hold any value, similar to an instance property on a class
-  const ref = useRef()
+  const reference = useRef()
 
   // store current dependencies in ref only if they change
-  if (!isDeepEqual(deps, ref.current)) {
-    isDebug && debugDiff(ref.current, deps)
+  if (!isDeepEqual(deps, reference.current)) {
+    isDebug && debugDiff(reference.current, deps)
 
-    ref.current = deps
+    reference.current = deps
   }
 
-  return useReactMemo(fn, ref.current)
+  return useReactMemo(function_, reference.current)
 }
 
-export const useCallback = (fn, deps, isDebug = false) => {
-  const ref = useRef()
+export const useCallback = (function_, deps, isDebug = false) => {
+  const reference = useRef()
 
-  if (!isDeepEqual(deps, ref.current)) {
-    isDebug && debugDiff(ref.current, deps)
+  if (!isDeepEqual(deps, reference.current)) {
+    isDebug && debugDiff(reference.current, deps)
 
-    ref.current = deps
+    reference.current = deps
   }
 
-  return useReactCallback(fn, ref.current)
+  return useReactCallback(function_, reference.current)
 }
 
-export const useEffect = (fn, deps, isDebug) => {
-  const ref = useRef()
+export const useEffect = (function_, deps, isDebug) => {
+  const reference = useRef()
 
-  if (!isDeepEqual(deps, ref.current)) {
-    isDebug && debugDiff(ref.current, deps)
+  if (!isDeepEqual(deps, reference.current)) {
+    isDebug && debugDiff(reference.current, deps)
 
-    ref.current = deps
+    reference.current = deps
   }
 
-  return useReactEffect(fn, ref.current)
+  return useReactEffect(function_, reference.current)
 }
 
-export const deepReactMemo = (source, props) => {
-  const changingProps = isEmpty(props) ? keys(source.propTypes) : props
+export const deepReactMemo = (source, properties) => {
+  const changingProperties = isEmpty(properties)
+    ? keys(source.propTypes)
+    : properties
 
-  return reactMemo(source, (prev, next) =>
-    isDeepEqual(pick(changingProps, prev), pick(changingProps, next))
-  )
+  return reactMemo(source, (previous, next) => {
+    return isDeepEqual(
+      pluck(changingProperties, previous),
+      pluck(changingProperties, next)
+    )
+  })
 }

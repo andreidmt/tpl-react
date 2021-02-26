@@ -1,16 +1,11 @@
 {
-  "modules": true,
   "plugins": {
-    "postcss-modules": {},
     "postcss-preset-env": {
-      "importFrom": "src/core.ui/variables.css",
-      "preserve": false,
       "stage": 2
     },
     "postcss-color-function": {},
     "postcss-custom-media": {
       "importFrom": "src/core.ui/variables.css",
-      "preserve": false
     },
   }
 }

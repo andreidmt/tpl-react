@@ -6,7 +6,7 @@ import PropTypes from "prop-types"
 import { useAuth } from "core.hooks/use-auth/auth.hook"
 import { BaseLayout } from "layout.base/base"
 
-import css from "./user.css"
+import css from "./user.module.css"
 
 const UserLayout = ({ children }) => {
   const { name } = useAuth()

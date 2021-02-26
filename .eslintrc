@@ -1,46 +1,30 @@
 {
   "parser": "babel-eslint",
-
   "root": true,
-
-  "extends": [
-    "@asd14/eslint-config/targets/react",
-  ],
-
+  "extends": ["@asd14/eslint-config/targets/react"],
   "ignorePatterns": ["dist/*.js"],
 
   "globals": {
-    // Access build time env vars
     "process": true,
-
-    // Import packages
     "require": true,
-
     "module": true
   },
 
-  // App specific rules
   "rules": {
     "new-cap": "off",
+
+    // disable until upstream issues fixed
+    "jsdoc/check-line-alignment": "off"
   },
 
   "settings": {
-    "react": {
-      "version": "detect",
-    },
-
     // Recommended if you use eslint_d
     "import/cache": {
-      "lifetime": 5,
+      "lifetime": 5
     },
 
     // Can add a path segment here that will act like a source root, for
     // in-project aliasing (i.e. `import MyStore from 'stores/my-store'`)
-    "import/resolver": {
-      parcel: {
-        "rootDir": "src",
-        "extensions": [".js", ".jsx"]
-      }
-    }
+    "import/resolver": "webpack"
   }
 }

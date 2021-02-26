@@ -5,7 +5,7 @@ import PropTypes from "prop-types"
 
 import { BaseLayout } from "layout.base/base"
 
-import css from "./guest.css"
+import css from "./guest.module.css"
 
 const GuestLayout = ({ children }) => {
   return (

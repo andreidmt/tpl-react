@@ -13,13 +13,12 @@ import { BaseLayout } from "./layout.base/base"
  * Route without authentication
  *
  * @param {string}     path         Route path
- * @param {string}     redirectPath Redirect if JWT present and
- *                                  isExclusive = true
+ * @param {string}     redirectPath Redirect if JWT present and isExclusive = true
  * @param {React.Node} component    What to render if all conditions met
  * @param {boolean}    isExclusive  Only allow page access if JWT missing
  * @param {boolean}    hasLayout    Use dedicated Guest layout
  *
- * @return {ReactRouter.Route}
+ * @returns {ReactRouter.Route}
  **/
 const GuestRoute = ({
   path,
@@ -37,17 +36,17 @@ const GuestRoute = ({
     <Route
       {...rest}
       path={path}
-      render={props =>
+      render={properties =>
         shouldRender ? (
           <Layout>
-            <Component {...props} />
+            <Component {...properties} />
           </Layout>
         ) : (
           <Redirect
             to={{
               pathname: redirectPath,
               /* eslint-disable react/prop-types */
-              state: { from: props.location },
+              state: { from: properties.location },
             }}
           />
         )
@@ -65,7 +64,7 @@ GuestRoute.propTypes = {
 }
 
 GuestRoute.defaultProps = {
-  path: null,
+  path: undefined,
   redirectPath: "/",
   isExclusive: false,
   hasLayout: true,

@@ -21,7 +21,7 @@ import { UserLayout } from "./layout.user/user"
  * @param {React.Node} component    What to render
  * @param {boolean}    hasLayout    Will not use dedicated User layout
  *
- * @return {ReactRouter.Route}
+ * @returns {ReactRouter.Route}
  **/
 const UserRoute = ({
   path,
@@ -39,11 +39,11 @@ const UserRoute = ({
     <Route
       {...rest}
       path={path}
-      render={props => {
+      render={properties => {
         if (isAuthenticated) {
           return (
             <Layout>
-              <Component {...props} />
+              <Component {...properties} />
             </Layout>
           )
         }
@@ -53,7 +53,7 @@ const UserRoute = ({
             to={{
               pathname: redirectPath,
               /* eslint-disable react/prop-types */
-              state: { from: props.location },
+              state: { from: properties.location },
             }}
           />
         )
@@ -70,7 +70,7 @@ UserRoute.propTypes = {
 }
 
 UserRoute.defaultProps = {
-  path: null,
+  path: undefined,
   redirectPath: "/",
   hasLayout: true,
 }

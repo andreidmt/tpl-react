@@ -1,15 +1,17 @@
 const debug = require("debug")("asd14:useSocketReducer")
 
+const defaultState = {
+  socket: undefined,
+  retries: 0,
+  isConnecting: false,
+  isConnected: false,
+}
+
 export const STORE_KEY = "GLOBAL.SOCKET"
 
 export const reducer = (
-  state = {
-    socket: null,
-    retries: 0,
-    isConnecting: false,
-    isConnected: false,
-  },
-  { type, payload: { socket = null } = {} }
+  state = defaultState,
+  { type, payload: { socket } = {} }
 ) => {
   switch (type) {
     case `${STORE_KEY}.CONNECTING`:
@@ -29,12 +31,8 @@ export const reducer = (
       }
 
     case `${STORE_KEY}.DISCONNECT`:
-      return {
-        socket: null,
-        retries: 0,
-        isConnecting: false,
-        isConnected: false,
-      }
+      return defaultState
+
     default:
       return state
   }

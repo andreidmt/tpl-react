@@ -1,4 +1,6 @@
-const debug = require("debug")("asd14:UIInput")
+/* eslint-disable unicorn/no-null,unicorn/prevent-abbreviations */
+
+const debug = require("debug")("probable-spoon:UIInput")
 
 import React, { forwardRef } from "react"
 import PropTypes from "prop-types"
@@ -8,7 +10,7 @@ import { isEmpty, is } from "@asd14/m"
 
 import css from "./input.css"
 
-const UIInput = forwardRef(
+const UISource = forwardRef(
   (
     {
       className,
@@ -33,7 +35,7 @@ const UIInput = forwardRef(
       onBlur,
       onKeyDown,
     },
-    ref
+    reference
   ) => {
     const handleKeyDown = event => {
       if (event.key === "Tab") {
@@ -71,7 +73,7 @@ const UIInput = forwardRef(
               <span className={css.shadow}>{shadow}</span>
             ) : null}
             <input
-              ref={ref}
+              ref={reference}
               id={is(name) ? name : cuid()}
               placeholder={placeholder}
               type={type}
@@ -110,7 +112,7 @@ const UIInput = forwardRef(
   }
 )
 
-UIInput.propTypes = {
+UISource.propTypes = {
   className: PropTypes.string,
   placeholder: PropTypes.string,
   value: PropTypes.string.isRequired,
@@ -134,28 +136,28 @@ UIInput.propTypes = {
   onKeyDown: PropTypes.func,
 }
 
-UIInput.defaultProps = {
-  className: null,
-  placeholder: null,
-  label: null,
+UISource.defaultProps = {
+  className: undefined,
+  placeholder: undefined,
+  label: undefined,
   type: "text",
-  size: null,
+  size: undefined,
   name: "",
   shadow: "",
   tabIndex: undefined,
-  error: null,
+  error: undefined,
   isDisabled: false,
   isChecked: false,
   isLoading: false,
   hasAutoFocus: false,
   hasAutocomplete: true,
   hasErrorMessage: true,
-  onSubmit: null,
-  onFocus: null,
-  onBlur: null,
-  onKeyDown: null,
+  onSubmit: undefined,
+  onFocus: undefined,
+  onBlur: undefined,
+  onKeyDown: undefined,
 }
 
-const memo = React.memo(UIInput)
+const memo = React.memo(UISource)
 
 export { memo as UIInput }

@@ -16,34 +16,38 @@ import { is } from "@asd14/m"
  * const target = usePortal(id, [id]);
  * return createPortal(children, target);
  *
- * @param {String} id The id of the target container, e.g 'modal' or 'spotlight'
+ * @param {string} id The id of the target container, e.g 'modal' or 'spotlight'
  *
  * @returns {HTMLElement} The DOM node to use as the Portal target.
  */
 const usePortal = id => {
-  const rootElemRef = useRef(null)
+  const rootElementReference = useRef(null)
 
-  if (!is(rootElemRef.current)) {
-    const rootElem =
+  if (!is(rootElementReference.current)) {
+    const rootElement =
       document.querySelector(`#${id}`) || document.createElement("div")
 
-    rootElem.setAttribute("id", id)
-    rootElemRef.current = rootElem
+    rootElement.setAttribute("id", id)
+    rootElementReference.current = rootElement
 
-    document.body.appendChild(rootElem)
+    document.body.append(rootElement)
   }
 
   useEffect(() => {
-    rootElemRef.current.setAttribute("id", id)
+    rootElementReference.current.setAttribute("id", id)
 
-    return () => rootElemRef.current.remove()
+    return () => rootElementReference.current.remove()
   }, [id])
 
-  return rootElemRef.current
+  return rootElementReference.current
 }
 
 /**
  * Portal wrapper component
+ *
+ * @param {Object} props
+ * @param {string} props.id
+ * @param {any}    props.children
  *
  * @example
  * <Portal id="image-overlay">

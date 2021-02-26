@@ -1,6 +1,6 @@
 const debug = require("debug")("asd14:Home.TodosList")
 
-import { buildList } from "just-a-list.redux"
+import { buildList } from "@asd14/state-list"
 import { GET, PATCH, POST, DELETE } from "@asd14/fetch-browser"
 import { sort } from "@asd14/m"
 

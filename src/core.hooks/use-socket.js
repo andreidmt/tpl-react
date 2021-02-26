@@ -1,4 +1,4 @@
-const debug = require("debug")("asd14:useSocket")
+const debug = require("debug")("probable-spoon:useSocket")
 
 import { useCallback } from "react"
 import { useSelector, useDispatch } from "react-redux"
@@ -7,8 +7,8 @@ import io from "socket.io-client"
 
 import { useAuth } from "./use-auth/auth.hook"
 
-const initialState = {
-  socket: null,
+const defaultState = {
+  socket: undefined,
   retries: 0,
   isConnecting: false,
   isConnected: false,
@@ -16,7 +16,7 @@ const initialState = {
 
 export const STORE_KEY = "GLOBAL.SOCKET"
 
-export const reducer = (state = initialState, { type, payload }) => {
+export const reducer = (state, { type, payload }) => {
   switch (type) {
     case `${STORE_KEY}.CONNECTING`:
       debug(`${STORE_KEY}.CONNECTING`)
@@ -41,9 +41,9 @@ export const reducer = (state = initialState, { type, payload }) => {
     case `${STORE_KEY}.DISCONNECT`:
       debug(`${STORE_KEY}.DISCONNECT`)
 
-      return initialState
+      return defaultState
     default:
-      return state
+      return defaultState
   }
 }
 
@@ -51,7 +51,7 @@ export const reducer = (state = initialState, { type, payload }) => {
  * WebSocket connection hook. Persistent in Redux store to allow only one
  * connection per user.
  *
- * @return {[data, methods]}
+ * @returns {[data, methods]}
  */
 export const useSocket = () => {
   const dispatch = useDispatch()

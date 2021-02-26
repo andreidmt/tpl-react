@@ -1,21 +1,21 @@
-const debug = require("debug")("asd14:usePrev")
+const debug = require("debug")("asd14:usePrevious")
 
 import { useRef } from "react"
 
 import { useEffect } from "./use-deep"
 
-export const usePrev = value => {
+export const usePrevious = value => {
   // The ref object is a generic container whose current property is mutable ...
   // ... and can hold any value, similar to an instance property on a class
-  const ref = useRef()
+  const reference = useRef()
 
   // Store current value in ref
   useEffect(() => {
-    ref.current = value
+    reference.current = value
 
     // Only re-run if value changes
   }, [value])
 
   // Return previous value (happens before update in useEffect above)
-  return ref.current
+  return reference.current
 }

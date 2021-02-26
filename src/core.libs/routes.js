@@ -7,14 +7,16 @@ import { stringify } from "qs"
 /**
  * Custom Route Error
  *
- * @param {String} name Route name
+ * @param   {string}    name Route name
+ *
+ * @returns {undefined}
  */
 function RouteNotFoundError(name) {
   this.message = `"${name}" not found`
   this.name = "RouteNotFoundError"
 }
 
-RouteNotFoundError.prototype = new Error()
+RouteNotFoundError.prototype = new Error("Route not found")
 
 const ROUTES = {
   "guest.home": "/",
@@ -29,18 +31,18 @@ const ROUTES = {
  * @type {Object<string, Object>}
  */
 const ROUTES_COMPILED = reduce(
-  (acc, [key, value]) => ({ ...acc, [key]: compile(value) }),
+  (accumulator, [key, value]) => ({ ...accumulator, [key]: compile(value) }),
   {}
 )(Object.entries(ROUTES))
 
 /**
  * Get route path by name
  *
- * @param {string} name Route name
+ * @param   {string}             name Route name
  *
- * @throws {RouteNotFoundError} If route name not defined
+ * @throws  {RouteNotFoundError}      If route name not defined
  *
- * @return {string}
+ * @returns {string}
  */
 export const getPath = name => {
   if (isEmpty(ROUTES[name])) {
@@ -53,13 +55,15 @@ export const getPath = name => {
 /**
  * Build the URL based on route name, params and query
  *
- * @param {String} name   Route name
- * @param {Object} params Route parameters
- * @param {Object} query  Query parameters
+ * @param   {string}             name         Route name
+ * @param   {Object}             props
+ * @param   {Object}             props.params Route parameters
+ * @param   {Object}             props.query  Query parameters
+ * @param   {string}             props.anchor
  *
- * @throws {RouteNotFoundError} If route name not defined
+ * @throws  {RouteNotFoundError}              If route name not defined
  *
- * @return {String}
+ * @returns {string}
  */
 export const buildURL = (name, { params, query, anchor }) => {
   if (isEmpty(ROUTES[name])) {
@@ -83,11 +87,11 @@ export const buildURL = (name, { params, query, anchor }) => {
 // Parse ajv error structure into key/value object
 export const errorMessagesByField = pipe(
   get(["body", "details", "fieldErrors"], []),
-  reduce((acc, item) => {
+  reduce((accumulator, item) => {
     const field = pipe(get("dataPath"), split("."), last)(item)
 
     return {
-      ...acc,
+      ...accumulator,
       [field]: item.message,
     }
   }, {})

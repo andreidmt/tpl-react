@@ -26,7 +26,7 @@ const UIButton = ({
         [css["button--is-disabled"]]: isDisabled,
       }
     )}
-    onMouseDown={isDisabled ? null : onClick}>
+    onMouseDown={isDisabled ? undefined : onClick}>
     {is(icon) && <span className={css["button-icon"]}>{icon}</span>}
     {is(label) && <span className={css["button-label"]}>{label}</span>}
   </span>
@@ -44,11 +44,11 @@ UIButton.propTypes = {
 
 UIButton.defaultProps = {
   className: "",
-  icon: null,
+  icon: undefined,
   type: "default",
   size: "default",
   isDisabled: false,
-  onClick: null,
+  onClick: undefined,
 }
 
 const memo = React.memo(UIButton)

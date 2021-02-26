@@ -1,6 +1,6 @@
 const debug = require("debug")("asd14:useSocket")
 
-import io from "socket.io-client"
+import { io } from "socket.io-client"
 import { useCallback } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { is, get, isEmpty } from "@asd14/m"
