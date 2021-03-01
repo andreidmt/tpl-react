@@ -2,18 +2,22 @@ const debug = require("debug")("asd14:Redux")
 
 import { createStore, combineReducers } from "redux"
 
-import * as stateSocket from "core.hooks/use-socket/socket.reducer"
-import * as stateAuth from "core.hooks/use-auth/auth.reducer"
-import * as useFocus from "core.hooks/use-focus"
-import * as useCommands from "core.hooks/use-commands"
+import {
+  useSocketRedux,
+  useAuthRedux,
+  useFocusRedux,
+  useThemeRedux,
+  useCommandsRedux,
+} from "@asd14/react-hooks"
 
 import { TodosList } from "./page.home/data/list.todos"
 
 const appReducer = combineReducers({
-  [stateSocket.STORE_KEY]: stateSocket.reducer,
-  [stateAuth.STORE_KEY]: stateAuth.reducer,
-  [useCommands.STORE_KEY]: useCommands.reducer,
-  [useFocus.STORE_KEY]: useFocus.reducer,
+  [useSocketRedux.STORE_KEY]: useSocketRedux.reducer,
+  [useAuthRedux.STORE_KEY]: useAuthRedux.reducer,
+  [useFocusRedux.STORE_KEY]: useFocusRedux.reducer,
+  [useThemeRedux.STORE_KEY]: useThemeRedux.reducer,
+  [useCommandsRedux.STORE_KEY]: useCommandsRedux.reducer,
 
   [TodosList.name]: TodosList.reducer,
 })

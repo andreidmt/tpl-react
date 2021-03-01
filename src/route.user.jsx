@@ -4,7 +4,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Route, Redirect } from "react-router-dom"
 
-import { useAuth } from "core.hooks/use-auth/auth.hook"
+import { useAuth } from "@asd14/react-hooks"
 
 import { BaseLayout } from "./layout.base/base"
 import { UserLayout } from "./layout.user/user"

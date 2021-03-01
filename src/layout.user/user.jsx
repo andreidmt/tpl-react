@@ -2,8 +2,8 @@ const debug = require("debug")("asd14:UserLayout")
 
 import React from "react"
 import PropTypes from "prop-types"
+import { useAuth } from "@asd14/react-hooks"
 
-import { useAuth } from "core.hooks/use-auth/auth.hook"
 import { BaseLayout } from "layout.base/base"
 
 import css from "./user.module.css"

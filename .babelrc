@@ -1,10 +1,9 @@
 {
   "presets": [
     // Use the latest JavaScript without needing to micromanage which syntax
-    // transforms (and optionally, browser polyfills) are needed by your
-    // target environment.
+    // transforms and browser polyfills are needed by your target environment.
     //
-    // Uses .browserslistrc to determine what plugins to use.
+    // Uses .browserslistrc to specify target environments.
     "@babel/preset-env",
 
     // Load React specific plugins
@@ -20,7 +19,11 @@
     // Remove data-test-id attributes from your production builds.
     "babel-plugin-jsx-remove-data-test-id",
 
-    // Enables the re-use of Babel's injected helper code to save on codesize
+
+    // Babel uses very small helpers for common functions such as _extend. By
+    // default this will be added to every file that requires it. This
+    // duplication is sometimes unnecessary, especially when your application
+    // is spread out over multiple files.
     "@babel/plugin-transform-runtime",
 
     // Add displayName to React.createClass calls

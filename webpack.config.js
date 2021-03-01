@@ -115,10 +115,23 @@ const config = {
   resolve: {
     extensions: [".js", ".jsx"],
     alias: {
-      "core.ui": path.resolve(__dirname, "src/core.ui/"),
-      "core.libs": path.resolve(__dirname, "src/core.libs/"),
-      "core.hooks": path.resolve(__dirname, "src/core.hooks/"),
-      "layout.base": path.resolve(__dirname, "src/layout.base/"),
+      // If using Lerna monorepos or symlinked libraries, react hooks will fail
+      // with "Hooks can only be called inside the body of a function component"
+      // caused by having multiple React version.
+      // Confirm following https://reactjs.org/warnings/invalid-hook-call-warning.html
+      //
+      // Fix this by telling Webpack to only use the main package's node_modules
+      // version of React related libraries.
+      //
+      // Read this for more: https://github.com/facebook/react/issues/13991
+      react: path.resolve("./node_modules/react"),
+      redux: path.resolve("./node_modules/redux"),
+      "react-redux": path.resolve("./node_modules/react-redux"),
+      "react-router-dom": path.resolve("./node_modules/react-router-dom"),
+
+      "core.ui": path.resolve("./src/core.ui/"),
+      "core.libs": path.resolve("./src/core.libs/"),
+      "layout.base": path.resolve("./src/layout.base/"),
     },
   },
 
