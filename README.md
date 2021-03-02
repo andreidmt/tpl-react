@@ -2,8 +2,6 @@
 
 # tpl-react
 
-> :godmode: Frontend starter with React, Redux, Webpack and friends!
-
 <!-- vim-markdown-toc GFM -->
 
 * [Stack](#stack)
