@@ -2,10 +2,11 @@
 
 # tpl-react
 
+> :godmode: Frontend starter with React, Redux, Webpack and friends!
+
 <!-- vim-markdown-toc GFM -->
 
 * [Stack](#stack)
-* [Environment variables](#environment-variables)
 * [Changelog](#changelog)
 
 <!-- vim-markdown-toc -->
@@ -23,11 +24,6 @@
 * Code formatting: ESLint rules + [prettier](https://github.com/prettier/prettier)
 * Query string parsing: [qs](https://github.com/ljharb/qs)
 * DateTime handling: [luxon](https://github.com/moment/luxon)
-
-## Environment variables
-
-* `API_URL` - prefix request path in [`core/http.lib.js`](src/core/http.lib.js)
-* `SOCKET_URL` - socket.io connection string in [`useList`](src/core/use-list.js) hook
 
 ## Changelog
 
