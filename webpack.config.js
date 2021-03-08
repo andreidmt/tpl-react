@@ -8,6 +8,8 @@ const CopyPlugin = require("copy-webpack-plugin")
 const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin")
 
 module.exports = (environment, props) => {
+  // Using "mode" CLI argument also sets process.env.NODE_ENV on DefinePlugin
+  // to "development" or "production"
   const IS_PROD = props.mode === "production"
 
   return {
@@ -111,9 +113,8 @@ module.exports = (environment, props) => {
         },
 
     plugins: [
-      ...(IS_PROD ? [] : [new ReactRefreshWebpackPlugin()]),
-
       new HtmlWebPackPlugin({
+        favicon: "public/doomguy.png",
         template: "public/index.html",
       }),
 
@@ -134,6 +135,8 @@ module.exports = (environment, props) => {
           },
         ],
       }),
+
+      ...(IS_PROD ? [] : [new ReactRefreshWebpackPlugin()]),
     ],
 
     resolve: {
