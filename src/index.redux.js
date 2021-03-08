@@ -6,7 +6,6 @@ import {
   useSocketRedux,
   useAuthRedux,
   useFocusRedux,
-  useThemeRedux,
   useCommandsRedux,
 } from "@asd14/react-hooks"
 
@@ -16,7 +15,6 @@ const appReducer = combineReducers({
   [useSocketRedux.STORE_KEY]: useSocketRedux.reducer,
   [useAuthRedux.STORE_KEY]: useAuthRedux.reducer,
   [useFocusRedux.STORE_KEY]: useFocusRedux.reducer,
-  [useThemeRedux.STORE_KEY]: useThemeRedux.reducer,
   [useCommandsRedux.STORE_KEY]: useCommandsRedux.reducer,
 
   [TodosList.name]: TodosList.reducer,
