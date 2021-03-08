@@ -18,12 +18,21 @@ module.exports = (environment, props) => {
       path: path.resolve(__dirname, "dist"),
 
       // Cannot use 'contenthash' when hot reloading is enabled.
-      filename: IS_PROD
-        ? "js/[name].[contenthash].js"
-        : "js/[name].[fullhash].js",
+      filename: IS_PROD ? "js/[name].[contenthash].js" : "js/[name].js",
     },
 
     devtool: IS_PROD ? false : "inline-source-map",
+
+    // In webpack-dev-server@3, there is a bug causing it to mis-judge the
+    // runtime environment when the Webpack 5 browserslist target is used.
+    //
+    // It then fallbacks to thinking a non-browser target is being used, in
+    // turn skipping injection of the HMR runtime, and thus breaking downstream
+    // integrations like this plugin.
+    //
+    // To overcome this, you can conditionally apply the browserslist only
+    // in production modes in your Webpack configuration:
+    target: IS_PROD ? "browserslist" : "web",
 
     module: {
       rules: [
@@ -87,8 +96,17 @@ module.exports = (environment, props) => {
     devServer: IS_PROD
       ? {}
       : {
+          // Enable gzip compression for everything served:
+          compress: true,
+
+          // When using the HTML5 History API, the index.html page will likely
+          // have to be served in place of any 404 responses.
           historyApiFallback: true,
+
+          // Full page reload/refresh when file changes are detected.
           liveReload: false,
+
+          // Enables Hot Module Replacement without page refresh
           hot: true,
         },
 
@@ -100,7 +118,8 @@ module.exports = (environment, props) => {
       }),
 
       new MiniCssExtractPlugin({
-        filename: "css/[name].[contenthash].css",
+        // Cannot use 'contenthash' when hot reloading is enabled.
+        filename: IS_PROD ? "css/[name].[contenthash].css" : "css/[name].css",
       }),
 
       new Dotenv({
