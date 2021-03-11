@@ -39,7 +39,7 @@
   "dependencies": {
     "@asd14/fetch-browser": "^2.0.0",
     "@asd14/m": "^5.0.0",
-    "@asd14/react-hooks": "^1.1.1",
+    "@asd14/react-hooks": "^1.1.2",
     "@asd14/state-list": "^7.8.1",
     "@babel/runtime": "^7.13.10",
     "classnames": "^2.2.6",
@@ -70,7 +70,7 @@
     "babel-loader": "^8.2.2",
     "babel-plugin-jsx-remove-data-test-id": "^3.0.0",
     "copy-webpack-plugin": "^8.0.0",
-    "css-loader": "^5.1.1",
+    "css-loader": "^5.1.2",
     "dotenv-webpack": "^7.0.1",
     "eslint": "^7.21.0",
     "eslint-config-prettier": "^8.1.0",
