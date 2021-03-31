@@ -1,0 +1,7 @@
+.error {
+  padding: var(--distancer);
+
+  color: var(--color-white);
+
+  background: var(--color-n-red);
+}
