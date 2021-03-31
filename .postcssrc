@@ -1,11 +1,7 @@
 {
   "plugins": {
-    "postcss-preset-env": {
-      "stage": 2
-    },
+    "postcss-preset-env": {},
     "postcss-color-function": {},
-    "postcss-custom-media": {
-      "importFrom": "src/core.ui/variables.css",
-    },
+    "postcss-custom-media": {}
   }
 }
