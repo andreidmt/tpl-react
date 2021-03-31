@@ -1,0 +1,132 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
+
+#
+# Reusable templates
+#
+
+job_defaults: &job_defaults
+  working_directory: ~/tpl-react
+  docker:
+    - image: circleci/node:lts
+
+job_filter: &job_filter
+  filters:
+    branches:
+      only:
+        - master
+
+#
+# Job sequence
+#
+
+workflows:
+  version: 2
+  npm_publish:
+    jobs:
+      - setup:
+          <<: *job_filter
+
+      - test:
+          <<: *job_filter
+          requires:
+            - setup
+
+      - release:
+          <<: *job_filter
+          requires:
+            - test
+
+      - build:
+          <<: *job_filter
+          requires:
+            - release
+
+      - deploy:
+          <<: *job_filter
+          requires:
+            - build
+
+#
+# Jobs definition
+#
+
+jobs:
+  setup:
+    <<: *job_defaults
+
+    steps:
+      - checkout
+
+      - run:
+          name: "tpl-react: Install npm packages"
+          command: "npm run setup"
+
+      - save_cache:
+          paths:
+            - .
+          key: tpl-react-{{ .Branch }}-{{ .Revision }}
+
+  test:
+    <<: *job_defaults
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - tpl-react-{{ .Branch }}-{{ .Revision }}
+
+      - run:
+          name: "tpl-react: Run linter"
+          command: "npm run lint"
+
+  release:
+    <<: *job_defaults
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - tpl-react-{{ .Branch }}-{{ .Revision }}
+
+      - run:
+          name: "tpl-react: Generate Git release and CHANGELOG"
+          command: "npm run release"
+
+      - save_cache:
+          paths:
+            - .
+          key: tpl-react-{{ .Branch }}-{{ .Revision }}
+
+  build:
+    <<: *job_defaults
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - tpl-react-{{ .Branch }}-{{ .Revision }}
+
+      - run:
+          name: "tpl-react: Webpack build"
+          command: "npm run build"
+
+  deploy:
+    <<: *job_defaults
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - tpl-react-{{ .Branch }}-{{ .Revision }}
+
+      - run:
+          name: "tpl-react: Deploy to DigitalOcean"
+          command: "ls"
