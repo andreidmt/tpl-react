@@ -1,4 +1,4 @@
-const debug = require("debug")("@asd14/tpl-react:ErrorBoundaryUI")
+const debug = require("debug")("tpl-react:ErrorBoundaryUI")
 
 import React from "react"
 import PropTypes from "prop-types"
