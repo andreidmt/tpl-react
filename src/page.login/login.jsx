@@ -1,4 +1,4 @@
-const debug = require("debug")("asd14:LoginPage")
+const debug = require("debug")("@asd14/tpl-react:LoginPage")
 
 import React from "react"
 import { isEmpty } from "@asd14/m"

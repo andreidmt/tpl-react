@@ -1,4 +1,4 @@
-const debug = require("debug")("asd14:GuestLayout")
+const debug = require("debug")("@asd14/tpl-react:GuestLayout")
 
 import React from "react"
 import PropTypes from "prop-types"
@@ -10,9 +10,7 @@ import css from "./guest.module.css"
 const GuestLayout = ({ children }) => {
   return (
     <BaseLayout>
-      <div className={css["guest-layout"]}>
-        <div>{children}</div>
-      </div>
+      <div className={css["guest-layout"]}>{children}</div>
     </BaseLayout>
   )
 }

@@ -3,11 +3,21 @@
 
   height: 100vh;
 
-  grid-template-columns: 400px auto;
+  color: var(--color-fg);
+  background: var(--color-bg);
+
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  line-height: var(--unit);
+  grid-template-columns: 1fr 1fr;
+}
+
+.content {
+  padding: var(--unit);
 }
 
 .leftside {
-  padding: var(--distancer);
+  padding: var(--unit);
 
-  border-right: 5px solid var(--color-black);
+  border-right: var(--unit) solid var(--color-bg1);
 }

@@ -1,21 +1,55 @@
-const debug = require("debug")("asd14:Home.TodosList")
+const debug = require("debug")("@asd14/react-tpl:HomePage.TodosList")
 
 import { buildList } from "@asd14/state-list"
-import { GET, PATCH, POST, DELETE } from "@asd14/fetch-browser"
-import { sort } from "@asd14/m"
+import { push, findWith, updateWith, removeWith } from "@asd14/m"
+import cuid from "cuid"
+
+let items = [
+  { id: "1", value: "React", isChecked: true },
+  { id: "2", value: "Redux", isChecked: true },
+  { id: "3", value: "Next.js", isChecked: true },
+  { id: "4", value: "GraphQL", isChecked: false },
+]
 
 export const TodosList = buildList({
   name: "HOME.TODOS",
 
-  create: data => POST("/todos", { body: data }),
+  create: data => {
+    const newItem = { id: cuid(), ...data }
 
-  read: () => GET("/todos"),
+    items = push(newItem)(items)
 
-  readOne: id => GET(`/todo/${id}`),
+    return newItem
+  },
 
-  update: (id, data) => PATCH(`/todos/${id}`, { body: data }),
+  read: () => items,
 
-  remove: id => DELETE(`/todos/${id}`),
+  readOne: id => findWith({ id }, { id }, items),
 
-  onChange: sort((a, b) => (a.isChecked ? -1 : b.isChecked ? -1 : 0)),
+  update: (id, data) => {
+    items = updateWith({ id }, data, items)
+
+    return findWith({ id }, { id }, items)
+  },
+
+  remove: id => {
+    items = removeWith({ id }, items)
+
+    return { id }
+  },
 })
+
+/*
+ * Interfacing a REST API
+ *
+ * @example
+ * buildList({
+ *   name: "HOME.TODOS",
+ *
+ *   create: data => POST("/todos", { body: data }),
+ *   read: () => GET("/todos"),
+ *   readOne: id => GET(`/todo/${id}`),
+ *   update: (id, data) => PATCH(`/todos/${id}`, { body: data }),
+ *   remove: id => DELETE(`/todos/${id}`),
+ * })
+ */

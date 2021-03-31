@@ -1,8 +1,9 @@
-const debug = require("debug")("asd14:UserLayout")
+const debug = require("debug")("@asd14/tpl-react:UserLayout")
 
 import React from "react"
 import PropTypes from "prop-types"
 import { useAuth } from "@asd14/react-hooks"
+import { Heading } from "@asd14/gruvbox-ui"
 
 import { BaseLayout } from "layout.base/base"
 
@@ -14,8 +15,8 @@ const UserLayout = ({ children }) => {
   return (
     <BaseLayout>
       <div className={css["user-layout"]}>
-        <h1>{`Hello ${name} Mutant World!`}</h1>
-        <div>{children}</div>
+        <Heading>{`Hello ${name}!`}</Heading>
+        {children}
       </div>
     </BaseLayout>
   )

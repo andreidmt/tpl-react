@@ -1,7 +1,7 @@
 const debug = require("debug")("asd14:Redux")
 
 import { createStore, combineReducers } from "redux"
-
+import { useThemeRedux } from "@asd14/gruvbox-ui"
 import {
   useSocketRedux,
   useAuthRedux,
@@ -16,20 +16,20 @@ const appReducer = combineReducers({
   [useAuthRedux.STORE_KEY]: useAuthRedux.reducer,
   [useFocusRedux.STORE_KEY]: useFocusRedux.reducer,
   [useCommandsRedux.STORE_KEY]: useCommandsRedux.reducer,
+  [useThemeRedux.STORE_KEY]: useThemeRedux.reducer,
 
   [TodosList.name]: TodosList.reducer,
 })
 
-// Provide `appReducer` undefined as `state` param to force revert to default
-// state when logging out
-const rootReducer = (state, action) =>
-  appReducer(action.type === "LOGOUT" ? undefined : state, action)
-
 export const store = createStore(
-  rootReducer,
+  // Provide `appReducer` undefined as `state` param to force revert to default
+  // state when logging out
+  (state, action) =>
+    appReducer(action.type === "LOGOUT" ? undefined : state, action),
 
-  // Firefox redux extension
+  // Redux Devtools extension, for development and SSR aware
   process.env.NODE_ENV !== "production" &&
+    window !== undefined &&
     window.__REDUX_DEVTOOLS_EXTENSION__ &&
     window.__REDUX_DEVTOOLS_EXTENSION__()
 )
