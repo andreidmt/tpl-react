@@ -159,6 +159,8 @@ module.exports = (environment, props) => {
         "core.ui": path.resolve("./src/core.ui/"),
         "core.libs": path.resolve("./src/core.libs/"),
         "layout.base": path.resolve("./src/layout.base/"),
+        "layout.guest": path.resolve("./src/layout.guest/"),
+        "layout.user": path.resolve("./src/layout.user/"),
       },
     },
 
