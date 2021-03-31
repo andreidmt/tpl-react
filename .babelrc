@@ -7,7 +7,7 @@
     "@babel/preset-env",
 
     // Load React specific plugins
-    "@babel/preset-react",
+    "@babel/preset-react"
   ],
 
   "plugins": [
@@ -18,7 +18,6 @@
 
     // Remove data-test-id attributes from your production builds.
     "babel-plugin-jsx-remove-data-test-id",
-
 
     // Babel uses very small helpers for common functions such as _extend. By
     // default this will be added to every file that requires it. This
@@ -34,7 +33,7 @@
     "development": {
       "plugins": [
         "react-refresh/babel"
-      ],
-    },
+      ]
+    }
   }
 }
