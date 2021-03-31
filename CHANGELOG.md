@@ -1,3 +1,12 @@
+# Semantic Versioning Changelog
+
+# [1.1.0](https://github.com/andreidmt/tpl-react/compare/v1.0.0...v1.1.0) (2021-03-31)
+
+
+### Features
+
+* Trigger new release ([384bd62](https://github.com/andreidmt/tpl-react/commit/384bd62008966d87c27f8acc3be42055988cab0d))
+
 <!-- markdownlint-disable line-length -->
 
 # Changelog
