@@ -1,5 +1,9 @@
 {
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "requireConfigFile": false
+  },
+
   "root": true,
   "extends": ["@asd14/eslint-config/targets/react"],
   "ignorePatterns": ["dist/*.js"],
