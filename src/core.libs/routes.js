@@ -1,4 +1,4 @@
-const debug = require("debug")("@asd14/tpl-react:RoutesLib")
+const debug = require("debug")("tpl-react:RoutesLib")
 
 import { compile } from "path-to-regexp"
 import { stringify } from "qs"
