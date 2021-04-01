@@ -30,7 +30,7 @@
     "release": "semantic-release",
     "----LINT": "",
     "lint:css": "stylelint 'src/*.css' 'src/**/*.css'",
-    "lint:md": "markdownlint '*.md'",
+    "lint:md": "markdownlint --ignore CHANGELOG.md '*.md'",
     "lint:js": "eslint --ext .jsx,.js,.json --quiet src",
     "lint": "npm run lint:md && npm run lint:css && npm run lint:js",
     "----TEST": "",
