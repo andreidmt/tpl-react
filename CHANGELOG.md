@@ -1,5 +1,12 @@
 # Semantic Versioning Changelog
 
+# [1.1.0-dev.2](https://github.com/andreidmt/tpl-react/compare/v1.1.0-dev.1...v1.1.0-dev.2) (2021-04-01)
+
+
+### Bug Fixes
+
+* **release:** Remove assets from github release ([e3fc208](https://github.com/andreidmt/tpl-react/commit/e3fc2086855829f225f0ce609ca4f92d047500ab))
+
 # [1.1.0-dev.1](https://github.com/andreidmt/tpl-react/compare/v1.0.0...v1.1.0-dev.1) (2021-04-01)
 
 
