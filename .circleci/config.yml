@@ -18,6 +18,7 @@ job_filter: &job_filter
     branches:
       only:
         - master
+        - dev
 
 #
 # Job sequence
