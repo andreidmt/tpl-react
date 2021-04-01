@@ -21,9 +21,6 @@
           "path": "dist/**"
         }
       ]
-    }],
-    ["@semantic-release/exec", {
-      "successCmd": "echo \"${nextRelease.version}\" >> .env",
-    }],
+    }]
   ]
 }
