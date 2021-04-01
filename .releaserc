@@ -3,8 +3,6 @@
     {
       "name": "master"
     },
-
-    // Ex. release "1.0.0.dev.1"
     {
       "name": "dev",
       "prerelease": true
