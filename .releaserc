@@ -1,26 +1,33 @@
 {
   "branches": [
+    // Ex. release "1.0.0"
     { name: "master" },
+
+    // Ex. release "1.0.0.dev.1"
     { name: "dev", prerelease: true },
   ],
 
   "plugins": [
+    // Parse all commits from previous release
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
+
+    // Update "version" in "package.json"
     "@semantic-release/npm",
+
+    // Update release notes in markdown as well
     ["@semantic-release/changelog", {
       "changelogFile": "CHANGELOG.md",
       "changelogTitle": "# Semantic Versioning Changelog"
     }],
+
+    // Push new version and release notes to git. Commit message will be
+    // suffixed with "[skip ci]" and will not trigger another build process.
     ["@semantic-release/git", {
       "assets": ["CHANGELOG.md", "package.json"]
     }],
-    ["@semantic-release/github", {
-      "assets": [
-        {
-          "path": "dist/**"
-        }
-      ]
-    }]
+
+    // Create GitHub tag and release
+    "@semantic-release/github"
   ]
 }
