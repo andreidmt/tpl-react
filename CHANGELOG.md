@@ -23,20 +23,3 @@
 * Switch from Parcel to Webpack (Parcel started requiering a config file) ([140585d](https://github.com/andreidmt/tpl-react/commit/140585dc25ec32078075de60e230f3373f184999))
 * Trigger new release ([384bd62](https://github.com/andreidmt/tpl-react/commit/384bd62008966d87c27f8acc3be42055988cab0d))
 * Update packages ([b0cfb13](https://github.com/andreidmt/tpl-react/commit/b0cfb13aa6b2691d16cf6e035755d56321dab9b7))
-
-# [1.1.0](https://github.com/andreidmt/tpl-react/compare/v1.0.0...v1.1.0) (2021-03-31)
-
-
-### Features
-
-* Trigger new release ([384bd62](https://github.com/andreidmt/tpl-react/commit/384bd62008966d87c27f8acc3be42055988cab0d))
-
-<!-- markdownlint-disable line-length -->
-
-# Changelog
-
-Releases and changelog are automaticly handled by [semantic-release](https://github.com/semantic-release/semantic-release).
-
-All releases are based on Angular's [Git commit message](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines) patterns.
-
-See the [releases section](https://github.com/andreidmt/tpl-react/releases) for details.
