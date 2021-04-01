@@ -1,14 +1,19 @@
 {
-  "branches": ["master", "dev"],
+  "branches": [
+    { name: "master" },
+    { name: "dev", prerelease: true },
+  ],
+
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
+    "@semantic-release/npm",
     ["@semantic-release/changelog", {
       "changelogFile": "CHANGELOG.md",
       "changelogTitle": "# Semantic Versioning Changelog"
     }],
     ["@semantic-release/git", {
-      "assets": ["CHANGELOG.md"]
+      "assets": ["CHANGELOG.md", "package.json"]
     }],
     ["@semantic-release/github", {
       "assets": [

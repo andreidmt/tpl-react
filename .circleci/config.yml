@@ -35,15 +35,10 @@ workflows:
           requires:
             - setup
 
-      - release:
-          <<: *job_filter
-          requires:
-            - test
-
       - build:
           <<: *job_filter
           requires:
-            - release
+            - test
 
       - deploy:
           <<: *job_filter
@@ -84,25 +79,6 @@ jobs:
           name: "tpl-react: Run linter"
           command: "npm run lint"
 
-  release:
-    <<: *job_defaults
-
-    steps:
-      - checkout
-
-      - restore_cache:
-          keys:
-            - tpl-react-{{ .Branch }}-{{ .Revision }}
-
-      - run:
-          name: "tpl-react: Generate Git release and CHANGELOG"
-          command: "npm run release"
-
-      - save_cache:
-          paths:
-            - .
-          key: tpl-react-{{ .Branch }}-{{ .Revision }}
-
   build:
     <<: *job_defaults
 
@@ -114,7 +90,11 @@ jobs:
             - tpl-react-{{ .Branch }}-{{ .Revision }}
 
       - run:
-          name: "tpl-react: Webpack build"
+          name: "tpl-react: GitHub release notes, CHANGELOG and package version"
+          command: "npm run release"
+
+      - run:
+          name: "tpl-react: Webpack bundle"
           command: "npm run build"
 
   deploy:
