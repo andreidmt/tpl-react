@@ -1,5 +1,12 @@
 # Semantic Versioning Changelog
 
+# [1.2.0](https://github.com/andreidmt/tpl-react/compare/v1.1.0...v1.2.0) (2021-04-02)
+
+
+### Features
+
+* **ci:** Set environment variables based on branch ([e32a767](https://github.com/andreidmt/tpl-react/commit/e32a76732306c7c8fd6fd654bcd7163d52c97249))
+
 # [1.1.0](https://github.com/andreidmt/tpl-react/compare/v1.0.0...v1.1.0) (2021-04-01)
 
 
