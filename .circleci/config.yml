@@ -90,6 +90,27 @@ jobs:
           keys:
             - tpl-react-{{ .Branch }}-{{ .Revision }}
 
+      # In every step, CircleCI uses bash to source BASH_ENV.
+      # This means that BASH_ENV is automatically loaded and run,
+      # allowing you to use interpolation and share environment
+      # variables across run steps.
+      - run:
+          name: "tpl-react: Configure env variables based on branch"
+          command: |
+            echo 'export VAR1=${GLOBAL_VAR1}' >> ${BASH_ENV}
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              echo '
+                export VAR2="${MASTER_VAR2}"
+                export VAR3="${MASTER_VAR3}"
+              ' >> ${BASH_ENV}
+            fi
+            if [ "${CIRCLE_BRANCH}" == "dev" ]; then
+              echo '
+                export VAR2="${DEV_VAR2}"
+                export VAR3="${DEV_VAR3}"
+              ' >> ${BASH_ENV}
+            fi
+
       - run:
           name: "tpl-react: GitHub release notes, CHANGELOG and package version"
           command: "npm run release"
